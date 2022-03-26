@@ -43,6 +43,7 @@ namespace Business.Concrete
             //    return result;
             //}
             _productDal.Add(product);
+            product.Guid = Guid.NewGuid();
             return new SuccessResult(Messages.ProductAdded);
 
         }
