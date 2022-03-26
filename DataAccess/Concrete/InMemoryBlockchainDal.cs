@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
@@ -50,15 +49,15 @@ namespace DataAccess.Concrete
 
         }
 
-        public IDataResult<Blockchain> GetByProductId(int id)
+        public Blockchain GetByProductId(int id)
         {
             var ent = _blockchains.SingleOrDefault(b => b.Chain[0].Data.ProductId == id);
             if (ent==null)
             {
-                return new ErrorDataResult<Blockchain>(ent);
+                return null;
             }
 
-            return new SuccessDataResult<Blockchain>(ent);
+            return ent;
         }
     }
 }

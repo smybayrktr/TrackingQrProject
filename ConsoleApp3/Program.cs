@@ -1,5 +1,6 @@
 ﻿using System;
 using Business.Concrete;
+using DataAccess.Concrete;
 using Entities.Concrete;
 using Newtonsoft.Json;
 
@@ -9,8 +10,7 @@ namespace ConsoleApp3
     {
         static void Main(string[] args)
         {
-            //veri tabani duzenle
-            BlockchainManager bm = new BlockchainManager();
+            BlockchainManager bm = new BlockchainManager(new InMemoryBlockchainDal());
             var bc = bm.InitializeBlockchain().Data;
             bm.AddBlock(bc.Chain,new Block(DateTime.Now, null, new Product{ProductId = 1,ProductName = "test",UnitPrice = 10}));  
             bm.AddBlock(bc.Chain,new Block(DateTime.Now, null, new Product{ProductId = 1,ProductName = "test",UnitPrice = 10}));  

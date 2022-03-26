@@ -6,6 +6,6 @@ namespace DataAccess.Abstract
 {
     public interface IBlockchainDal:IEntityRepository<Blockchain>
     {
-        IDataResult<Blockchain> GetByProductId(int id);
+        Blockchain GetByProductId(int id);
     }
 }

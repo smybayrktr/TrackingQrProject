@@ -7,7 +7,7 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class EfBlockchainDal:EfEntityRepositoryBase<Blockchain,TrackingQrContext>,IBlockchainDal
     {
-        public IDataResult<Blockchain> GetByProductId(int id)
+        public Blockchain GetByProductId(int id)
         {
             throw new System.NotImplementedException();
         }

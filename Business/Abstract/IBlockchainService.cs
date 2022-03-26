@@ -10,5 +10,8 @@ namespace Business.Abstract
         IDataResult<Block> GetLatestBlock(List<Block> chain);
         IResult AddBlock(List<Block> chain,Block block);
         IDataResult<Blockchain> InitializeBlockchain();
+        IDataResult<List<Blockchain>> GetAll();
+        IDataResult<Blockchain> GetByProductId(int id);
+        IResult Add(Blockchain chain);
     }
 }
