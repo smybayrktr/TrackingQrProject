@@ -11,6 +11,7 @@ using DataAccess.Concrete.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DataAccess.Concrete;
 
 namespace Business.DependencyResolvers.Autofac
 {
@@ -28,6 +29,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<AuthManager>().As<IAuthService>();
             builder.RegisterType<JwtHelper>().As<ITokenHelper>();
+
+            builder.RegisterType<BlockchainManager>().As<IBlockchainService>();
+            builder.RegisterType<InMemoryBlockchainDal>().As<IBlockchainDal>();
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
