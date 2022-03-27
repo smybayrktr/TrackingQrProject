@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using DataAccess.Abstract;
 using Entities.Concrete;
 
-namespace DataAccess.Concrete
+namespace DataAccess.Concrete.InMemory
 {
     public class InMemoryBlockchainDal : IBlockchainDal
     {
