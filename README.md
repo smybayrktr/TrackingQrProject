@@ -26,19 +26,12 @@ Proje Yapısı
 
 TrackingQrProject
 
-├── Business
-|   
-├── Core
-│   
-|── DataAccess
-|   
-|── Entities
-|   
-|── WebAPI     
-│   
-|── WebMVC 
-│     
-
+*Business   
+*Core   
+*DataAccess   
+*Entities   
+*WebAPI        
+*WebMVC 
 
 
 
