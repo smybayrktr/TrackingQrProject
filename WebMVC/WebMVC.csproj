@@ -25,15 +25,17 @@
     <_ContentIncludedByDefault Remove="wwwroot\demo_1\style.css.map" />
     <_ContentIncludedByDefault Remove="wwwroot\css\demo_1\style.css" />
     <_ContentIncludedByDefault Remove="wwwroot\css\demo_1\style.css.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\partials\purchase-banner.html" />
+    <_ContentIncludedByDefault Remove="wwwroot\partials\_footer.html" />
+    <_ContentIncludedByDefault Remove="wwwroot\partials\_navbar.html" />
+    <_ContentIncludedByDefault Remove="wwwroot\partials\_sidebar.html" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\demo_1\dashboard.js" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="..\..\..\Downloads\StarAdmin-Free-Bootstrap-Admin-Template-master\src\assets\images\favicon.png">
       <Link>wwwroot\image\favicon.png</Link>
     </Content>
-    <Content Include="wwwroot\pages\.DS_Store" />
-    <Content Include="wwwroot\scss\.DS_Store" />
-    <Content Include="wwwroot\vendors\.DS_Store" />
   </ItemGroup>
 
 </Project>
