@@ -1,32 +1,28 @@
 ﻿using Business.Abstract;
 using Business.BusinessAspects.Autofac;
-using Business.CCS;
 using Business.Constants;
 using Business.ValidationRules.FluentValidation;
 using Core.Aspects.Autofac.Caching;
 using Core.Aspects.Autofac.Performance;
 using Core.Aspects.Autofac.Transaction;
 using Core.Aspects.Autofac.Validation;
-using Core.CrossCuttingConcerns.Validation;
-using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
-using Entities.DTOs;
-using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Business.Concrete
 {
     public class ProductManager : IProductService
     {
-        IProductDal _productDal;
-        public ProductManager(IProductDal productDal)
+        private IProductDal _productDal;
+        private IBlockchainService _blockchainService;
+        public ProductManager(IProductDal productDal,IBlockchainService blockchainService)
         {
             _productDal = productDal;
+            _blockchainService = blockchainService;
         }
         [SecuredOperation("product.add,admin")]
         //Metot çağırıldığında Attribute varmı diye bakar. Varsa gider attribute çalıştırır.
@@ -43,7 +39,13 @@ namespace Business.Concrete
             //    return result;
             //}
             _productDal.Add(product);
+            var bc =_blockchainService.InitializeBlockchain();
+            if (!bc.Success)
+            {
+                return new ErrorResult(Messages.BlockchainCreateError);
+            }
             product.Guid = Guid.NewGuid();
+            _blockchainService.AddBlock(bc.Data.Chain, new Block(DateTime.Now, null,product));
             return new SuccessResult(Messages.ProductAdded);
 
         }
@@ -68,7 +70,7 @@ namespace Business.Concrete
             return new SuccessDataResult<Product>(_productDal.Get(p => p.ProductId == productId));
         }
 
-        public IDataResult<List<Product>> GetByUnitPrice(decimal min, decimal max)
+        public IDataResult<List<Product>> GetByUnitPrice(double min, double max)
         {
             return new SuccessDataResult<List<Product>>(_productDal.GetAll(p => p.UnitPrice >= min && p.UnitPrice <= max));
         }

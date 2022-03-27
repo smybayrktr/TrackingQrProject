@@ -10,9 +10,9 @@ namespace Entities.Concrete
         public DateTime TimeStamp { get; set; }  
         public string PreviousHash { get; set; }  
         public string Hash { get; set; }  
-        public string Data { get; set; }  
+        public Product Data { get; set; }  
   
-        public Block(DateTime timeStamp, string previousHash, string data)  
+        public Block(DateTime timeStamp, string previousHash, Product data)  
         {  
             Index = 0;  
             TimeStamp = timeStamp;  

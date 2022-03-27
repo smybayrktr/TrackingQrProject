@@ -1,12 +1,38 @@
 using System.Collections.Generic;
 using Business.Abstract;
 using Core.Utilities.Results;
+using DataAccess.Abstract;
 using Entities.Concrete;
 
 namespace Business.Concrete
 {
     public class BlockchainManager:IBlockchainService
     {
+        private IBlockchainDal _blockchainDal;
+
+        public BlockchainManager(IBlockchainDal blockchainDal)
+        {
+            _blockchainDal = blockchainDal;
+        }
+        
+        public IDataResult<List<Blockchain>> GetAll()
+        {
+            var data = _blockchainDal.GetAll();
+            return new SuccessDataResult<List<Blockchain>>(data);
+        }
+
+        public IDataResult<Blockchain> GetByProductId(int id)
+        {
+            var data = _blockchainDal.GetByProductId(id);
+            return new SuccessDataResult<Blockchain>(data);
+        }
+
+        public IResult Add(Blockchain chain)
+        {
+            _blockchainDal.Add(chain);
+            return new SuccessResult();
+        }
+
         public IDataResult<bool> IsValid(List<Block> chain)
         {
             for (int i = 1; i < chain.Count; i++)  
