@@ -15,12 +15,15 @@ namespace ConsoleApp3
             var bc = bm.InitializeBlockchain().Data;
             bm.AddBlock(bc.Chain,new Block(DateTime.Now, null, new Product{ProductId = 1,ProductName = "test",UnitPrice = 10}));  
             bm.AddBlock(bc.Chain,new Block(DateTime.Now, null, new Product{ProductId = 1,ProductName = "test",UnitPrice = 10}));  
-            bm.AddBlock(bc.Chain,new Block(DateTime.Now, null, new Product{ProductId = 1,ProductName = "test",UnitPrice = 10}));  
-  
-            Console.WriteLine(JsonConvert.SerializeObject(bc, Formatting.Indented));
+            bm.AddBlock(bc.Chain,new Block(DateTime.Now, null, new Product{ProductId = 1,ProductName = "test",UnitPrice = 10}));
 
-            var a =bm.IsValid(bc.Chain);
-            Console.WriteLine($"{a.Data}");
+            var list = bm.GetAll();
+            Console.WriteLine(JsonConvert.SerializeObject(list.Data[0].Chain, Formatting.Indented));
+            Console.WriteLine("---------------");
+            bm.AddBlock(list.Data[0].Chain,
+                new Block(DateTime.Now, null, new Product {ProductId = 1, ProductName = "test", UnitPrice = 10}));
+            Console.WriteLine(JsonConvert.SerializeObject(list.Data[0].Chain, Formatting.Indented));
+           
         }
     }
 }

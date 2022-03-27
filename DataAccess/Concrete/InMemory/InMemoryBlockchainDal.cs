@@ -18,7 +18,7 @@ namespace DataAccess.Concrete.InMemory
                 new Blockchain{Chain = new List<Block>{new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 1,ProductName="Elma",ProductDescription = "Elma aciklama",UnitPrice = 0.22})}},
                 new Blockchain{Chain = new List<Block>{new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 2,ProductName="Armut",ProductDescription = "Armut aciklama",UnitPrice = 0.22})}},
                 new Blockchain{Chain = new List<Block>{new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 3,ProductName="Karpuz",ProductDescription = "Karpuz aciklama",UnitPrice = 0.22})}},
-                new Blockchain{Chain = new List<Block>{new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 4,ProductName="Karpuz",ProductDescription = "Karpuz aciklama",UnitPrice = 0.22})}},
+                new Blockchain{Chain = new List<Block>{new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 4,ProductName="Domates",ProductDescription = "Domates aciklama",UnitPrice = 0.22})}},
                 new Blockchain{Chain = new List<Block>{new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 5,ProductName="Patates",ProductDescription = "Patates aciklama",UnitPrice = 0.22})}}
             };
         }
