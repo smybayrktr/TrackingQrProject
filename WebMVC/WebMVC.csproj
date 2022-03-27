@@ -18,4 +18,20 @@
     <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\shared\style.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\shared\style.css.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\demo_1\style.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\demo_1\style.css.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\..\Downloads\StarAdmin-Free-Bootstrap-Admin-Template-master\src\assets\images\favicon.png">
+      <Link>wwwroot\image\favicon.png</Link>
+    </Content>
+    <Content Include="wwwroot\pages\.DS_Store" />
+    <Content Include="wwwroot\scss\.DS_Store" />
+    <Content Include="wwwroot\vendors\.DS_Store" />
+  </ItemGroup>
+
 </Project>

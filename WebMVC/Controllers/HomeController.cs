@@ -39,6 +39,10 @@ namespace WebMVC.Controllers
             return View();
         }
 
+        public IActionResult AdminPanel()
+        {
+            return View();
+        }
         [HttpPost]
         public IActionResult SubmitQr(BlockchainViewModel bvm)
         {

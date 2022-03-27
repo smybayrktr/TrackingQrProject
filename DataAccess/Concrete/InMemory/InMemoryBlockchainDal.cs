@@ -16,19 +16,24 @@ namespace DataAccess.Concrete.InMemory
             var bc1 = new Blockchain();
             bc1.InitializeChain();
             bc1.Chain.Add(bc1.CreateGenesisBlock());
-            AddBlock(bc1.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 1,ProductName="Elma",ProductDescription = "Elma aciklama",UnitPrice = 0.22}));
+            AddBlock(bc1.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 1,ProductName="Elma",ProductDescription = "Hasat yapıldı.",UnitPrice = 0.22}));
+            AddBlock(bc1.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 1,ProductName="Elma",ProductDescription = "Amasyadan yola çıktı.",UnitPrice = 0.29}));
+            AddBlock(bc1.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 1,ProductName="Elma",ProductDescription = "Ankaraya vardı.",UnitPrice = 0.35}));
             var bc2 = new Blockchain();
             bc2.InitializeChain();
             bc2.Chain.Add(bc1.CreateGenesisBlock());
-            AddBlock(bc2.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 2,ProductName="Armut",ProductDescription = "Armut aciklama",UnitPrice = 0.22}));
+            AddBlock(bc2.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 2,ProductName="Armut",ProductDescription = "Hasat yapıldı.",UnitPrice = 0.34}));
+            AddBlock(bc2.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 2,ProductName="Armut",ProductDescription = "Yola çıktı.",UnitPrice = 0.74}));
             var bc3 = new Blockchain();
             bc3.InitializeChain();
             bc3.Chain.Add(bc1.CreateGenesisBlock());
-            AddBlock(bc3.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 3,ProductName="Karpuz",ProductDescription = "Karpuz aciklama",UnitPrice = 0.22}));
+            AddBlock(bc3.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 3,ProductName="Karpuz",ProductDescription = "Hasat yapıldı.",UnitPrice = 0.90}));
+            AddBlock(bc3.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 3,ProductName="Karpuz",ProductDescription = "Diyarbakırdan yola çıktı.",UnitPrice = 1.14}));
+            AddBlock(bc3.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 3,ProductName="Karpuz",ProductDescription = "Alıcıya ulaştı.",UnitPrice = 2.20}));
             var bc4 = new Blockchain();
             bc4.InitializeChain();
             bc4.Chain.Add(bc1.CreateGenesisBlock());
-            AddBlock(bc4.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 4,ProductName="Domates",ProductDescription = "Domates aciklama",UnitPrice = 0.22}));
+            AddBlock(bc4.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 4,ProductName="Domates",ProductDescription = "Hasat yapıldı.",UnitPrice = 0.23}));
             _blockchains = new List<Blockchain>()
             {
                bc1,bc2,bc3,bc4
