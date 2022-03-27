@@ -13,13 +13,25 @@ namespace DataAccess.Concrete.InMemory
 
         public InMemoryBlockchainDal()
         {
+            var bc1 = new Blockchain();
+            bc1.InitializeChain();
+            bc1.Chain.Add(bc1.CreateGenesisBlock());
+            AddBlock(bc1.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 1,ProductName="Elma",ProductDescription = "Elma aciklama",UnitPrice = 0.22}));
+            var bc2 = new Blockchain();
+            bc2.InitializeChain();
+            bc2.Chain.Add(bc1.CreateGenesisBlock());
+            AddBlock(bc2.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 2,ProductName="Armut",ProductDescription = "Armut aciklama",UnitPrice = 0.22}));
+            var bc3 = new Blockchain();
+            bc3.InitializeChain();
+            bc3.Chain.Add(bc1.CreateGenesisBlock());
+            AddBlock(bc3.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 3,ProductName="Karpuz",ProductDescription = "Karpuz aciklama",UnitPrice = 0.22}));
+            var bc4 = new Blockchain();
+            bc4.InitializeChain();
+            bc4.Chain.Add(bc1.CreateGenesisBlock());
+            AddBlock(bc4.Chain,new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 4,ProductName="Domates",ProductDescription = "Domates aciklama",UnitPrice = 0.22}));
             _blockchains = new List<Blockchain>()
             {
-                new Blockchain{Chain = new List<Block>{new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 1,ProductName="Elma",ProductDescription = "Elma aciklama",UnitPrice = 0.22})}},
-                new Blockchain{Chain = new List<Block>{new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 2,ProductName="Armut",ProductDescription = "Armut aciklama",UnitPrice = 0.22})}},
-                new Blockchain{Chain = new List<Block>{new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 3,ProductName="Karpuz",ProductDescription = "Karpuz aciklama",UnitPrice = 0.22})}},
-                new Blockchain{Chain = new List<Block>{new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 4,ProductName="Domates",ProductDescription = "Domates aciklama",UnitPrice = 0.22})}},
-                new Blockchain{Chain = new List<Block>{new Block(DateTime.Now,null,new Product{Guid = Guid.NewGuid(),ProductId = 5,ProductName="Patates",ProductDescription = "Patates aciklama",UnitPrice = 0.22})}}
+               bc1,bc2,bc3,bc4
             };
         }
 
@@ -27,7 +39,14 @@ namespace DataAccess.Concrete.InMemory
         {
             return _blockchains;
         }
-
+        public void AddBlock(List<Block> chain,Block block)
+        {
+            Block latestBlock = chain[chain.Count-1];  
+            block.Index = latestBlock.Index + 1;  
+            block.PreviousHash = latestBlock.Hash;  
+            block.Hash = block.CalculateHash();  
+            chain.Add(block);
+        }
         public Blockchain Get(Expression<Func<Blockchain, bool>> filter)
         {
             throw new NotImplementedException();

@@ -11,8 +11,7 @@ namespace Entities.Concrete
   
         public Blockchain()  
         {  
-            InitializeChain();  
-            AddGenesisBlock();  
+            InitializeChain();            
         }  
   
   

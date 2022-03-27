@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Business.Abstract;
 using Core.Utilities.Results;
@@ -14,7 +15,10 @@ namespace Business.Concrete
         {
             _blockchainDal = blockchainDal;
         }
-        
+        public Block CreateGenesisBlock()  
+        {  
+            return new Block(DateTime.Now, null, null);  
+        }  
         public IDataResult<List<Blockchain>> GetAll()
         {
             var data = _blockchainDal.GetAll();
@@ -71,6 +75,7 @@ namespace Business.Concrete
         public IDataResult<Blockchain> InitializeBlockchain()
         {
             Blockchain blockchain = new Blockchain();
+            blockchain.Chain.Add(CreateGenesisBlock());
             return new SuccessDataResult<Blockchain>(blockchain);
         }
     }

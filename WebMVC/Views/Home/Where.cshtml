@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Newtonsoft.Json
+@model Entities.Concrete.Blockchain
+<!DOCTYPE html>
 <html>
 
 
@@ -111,7 +113,7 @@
 						line-height: 1.5;
 						text-align: center;
 					">
-                Anadolu’da yetiştirilen ürünleri, adım adım izleyerek son kullanıcıya gösterir.
+                Anadolu’da yetiştirilen ürünleri, adım adım izleyerek son kullanıcıya gösterir. 
             </div>
             <div class="title">Ürün doğrulanmıştır.</div>
             <div class="desc" style="
@@ -123,8 +125,8 @@
                 Ürün analizi sonucu kullanılan gübre ve tohumun bilgisini alabilir veya üretim sonrası ilk fiyatı ve son kullanıcıya kadar gelen fiyat artışını görebilirsiniz.
             </div>
             <div class="btn-group vertical">
-                <a class="btn" href="index681a.html?lang=tr&amp;code=WKXJ5CZVPD&amp;view=report">Analiz Raporu</a>
-                <a class="btn" href="indexf313.html?lang=tr&amp;code=WKXJ5CZVPD&amp;view=source">Fiyat Takibi</a>
+                @* <a class="btn" href="index681a.html?lang=tr&amp;code=WKXJ5CZVPD&amp;view=report">Analiz Raporu</a> *@
+                <a class="btn" href="@Url.Action("Products","Home",new{chain= JsonConvert.SerializeObject(@Model)})">Fiyat Takibi</a>
             </div>
             <div style="
 						display: flex;
