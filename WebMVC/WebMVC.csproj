@@ -23,6 +23,8 @@
     <_ContentIncludedByDefault Remove="wwwroot\shared\style.css.map" />
     <_ContentIncludedByDefault Remove="wwwroot\demo_1\style.css" />
     <_ContentIncludedByDefault Remove="wwwroot\demo_1\style.css.map" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\demo_1\style.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\css\demo_1\style.css.map" />
   </ItemGroup>
 
   <ItemGroup>
